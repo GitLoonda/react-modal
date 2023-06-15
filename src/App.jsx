@@ -1,21 +1,23 @@
-import { useState } from 'react'
-import './App.css'
-import Modal from './components/Modal';
+import { useState } from "react";
+import "./App.css";
 
 function App() {
-  const [flg, setFlg] = useState(false);
-
-  const onModal = () => {setFlg(true);}
-  const offModal = () => {setFlg(false);}
+  const [color, setColor] = useState('#ccc');
 
   return (
-    <>
-      <h1>App</h1>
-      <button onClick={onModal}>모달창 생성</button>
-      { flg ? <Modal offModal={offModal} /> : null}
-      
-    </>
-  )
+    <div className='container'>
+      <h1>Color App</h1>
+      <div 
+        className='color-box' 
+        style={{ backgroundColor: color}}
+      ></div>
+      <div className='btn-group'>
+        <button onClick={() => setColor("red")}>red</button>
+        <button onClick={() => setColor("green")}>green</button>
+        <button onClick={() => setColor("blue")}>blue</button>
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
