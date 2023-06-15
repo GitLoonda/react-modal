@@ -1,19 +1,38 @@
 import { useState } from 'react'
 import './App.css'
-import Modal from './components/Modal';
 
 function App() {
-  const [flg, setFlg] = useState(false);
+  const posts = [
+    '첫번째 글', '두번째 글', '세번째 글', '네번째 글'
+  ]
+  const [likes, setLikes] = useState([0, 0, 0]);
 
-  const onModal = () => {setFlg(true);}
-  const offModal = () => {setFlg(false);}
-
+  const btnLike = (i) => {
+    let copy = [...likes];
+    copy[i] += 1;
+    setLikes(copy);
+  }
+ 
   return (
     <>
       <h1>App</h1>
-      <button onClick={onModal}>모달창 생성</button>
-      { flg ? <Modal offModal={offModal} /> : null}
-      
+      {
+        posts.map((post, i) => {
+          return (
+          <p key={i}>{post}</p>
+          )
+        })
+      }
+      {
+        likes.map((like, i) => {
+          return (
+            <div key={i}>
+              <button onClick={() => btnLike(i)}>좋아요</button>
+              <span>{likes[i]}</span>
+            </div>
+          )
+        })
+      }
     </>
   )
 }
