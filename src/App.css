@@ -1,0 +1,16 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.modal {
+  text-align: left;
+  margin: 20px auto;
+  background: #efefef;
+  width: 400px;
+  height: 300px;
+  padding: 10px 10px 10px 50px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
